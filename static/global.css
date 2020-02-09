@@ -1,0 +1,39 @@
+:root {
+  --secondary1: #b31aff;
+  --primary1: #0feea2;
+  --primary2: #0ddc96;
+  --primary3: #0ccb8a;
+  --dark1: #1a1a1a;
+  --light1: white;
+
+  --main-font: "Exo 2", monospace;
+}
+
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: var(--main-font);
+}
+
+a {
+  color: var(--primary1);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 0.3rem;
+  text-underline-offset: 0.3rem;
+  text-decoration-color: var(--primary1);
+}
+
+a:visited {
+  color: var(--primary2);
+}
