@@ -1,27 +1,22 @@
-# Magic-Driven Development
-
 ![Complex cables](https://www.pfmp.com/resources/img/services/complexity-management_02.jpg)
 
 > Relying on complex tools to manage and build your system is going to hurt the end users. [...] "If you try to hide the complexity of the system, you'll end up with a more complex system". Layers of abstraction that serve to hide internals are never a good thing. Instead, the internals should be designed in a way such that they NEED no hiding. — Aaron Griffin (Arch Linux Maintainer)
 
-I remember trying out [Spacemacs](https://www.spacemacs.org) a few months ago. It seemed like a great text editor at the time, with a ton of great functionality built-in. Fuzzy search, Orgs mode, Vim keybindings, a Git client... heck, even a mail client! It felt like you could live your entire life inside this program.
+I may not yet be the greyest beard, but I have journeyed through my fair share of text editors. From the lofty refactors of IntelliJ, through the barren Vim lands, and over the misty mountains of VS Code. But it is in the remote Kakoune plains that I found my peace.
 
-> [Emacs is a great operating system](https://wiki.c2.com/?EmacsAsOperatingSystem), it just lacks a decent text editor - Someone on the Internet
+What’s a *Kakoune*, you say? Well, I’m glad you asked! It’s the best thing since sliced bread. It’s a Piet Mondrian painting masquerading as software. It’s... the dumbest code editor I know of. It’s the **UNIX philosophy** at its finest.
 
-![Rude Goldberg Machine](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fep60qmdjq8-flywheel.netdna-ssl.com%2Fwp-content%2Fuploads%2F2014%2F08%2Frube.png&f=1&nofb=1)
+> Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.
 
-...I gave up after a week. The moment I tried to tweak something just a little bit, flip a switch, move a lever, everything promptly broke down. The smallest amount of customization proved a daunting task. [A lesson had been learned](https://en.wikipedia.org/wiki/Law_of_conservation_of_complexity).
+You see, Kakoune doesn’t overstep its bounds. It’s a code editor, and nothing else. Kakoune is the chef’s knife that slices, dices, chops and minces your code.
+
+But Kakoune doesn’t have tabs or even a scripting language. For that, you can use tmux and shell scripts, respectively.
+
+Wherever it made sense to use the platform, Kakoune did. The end result is that not only do you learn Kakoune, you also gain an understanding for the entire UNIX ecosystem lying underneath.
 
 ## Designing for programmers
 
-If anybody deserves the title of “Father of UX”, it’s probably [Larry Tesler](https://en.wikipedia.org/wiki/Larry_Tesler). During his work at Xerox PARC and Apple, Tesler argued strongly for the use of modeless editors, as opposed to the popular paradigm of the time: modal editors. 
 
-![Larry’s License Plate](https://66.media.tumblr.com/3d0029ebbacde1c59fc1dfa474096dd4/tumblr_n158sp91W21qz4leio1_1280.png)
-*Larry Tesler’s license plate*
-
-Modal editors, such as Vim, require you to switch frequently between different states (or *modes*) of operation, which specialize in different tasks. For example, Vim gives you the *normal* mode where the *H J K L* keys take on the role of the arrow keys. You can delete with *D*, copy with *Y* and paste with *P*. If you want to insert text, you need to enter the *insert* mode with the *I* key. When you’re done, you can come back to *normal* mode with the *Escape* key. All this switching back and forth makes for a steep learning curve for the end user, which is why most people will choose Notepad over Vim.
-
-*Programmers aren’t most people.* Programmers *enjoy* this kind of complexity. They do not see the cliff in front of them, but dream of the view from the top.
 
 ## Ruby, Rails, and Rage
 
@@ -47,9 +42,11 @@ No, I *don’t* think we should rewrite every web server in existence in Assembl
 
 ## Fighting the Framework
 
-> You are what you code. - Me
+> You are what you code
 
 Programming is the art of breaking large problems into smaller, more manageable parts. The tools we use to solve those problems end up reflecting on the solutions we choose. [Small, flexible tools](https://en.wikipedia.org/wiki/Unix_philosophy) will produce small, flexible software. Large, monolithic tools will beget large, monolithic software. Consider this a miniature form of [Conway’s Law](https://en.wikipedia.org/wiki/Conway%27s_law).
+
+Large frameworks like Rails aren’t dangerous simply because they abstract over their problem. They are dangerous because they abstract over so many different things at the same time.
 
 Next time you find yourself drooling over a new shiny framework, please ask yourself: 
 - What’s the likelihood of this abstraction still being relevant in 2 years? 5 years? 10 years?
@@ -57,5 +54,4 @@ Next time you find yourself drooling over a new shiny framework, please ask your
 - Will it play nice with the rest of my toolkit?
 - Is this something I could reasonably code myself?
 
-
-There is no such thing as magic and never will be. But LEGOs come pretty darn close.
+Why do we trade our LEGO bricks for Playmobils? Why do we give up our home-cooked code for heat-and-serve copy-pastas?

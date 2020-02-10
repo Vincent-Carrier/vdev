@@ -1,13 +1,13 @@
 // This file is called `_posts.js` rather than `posts.js`, because
 // we don't want to create an `/blog/posts` route — the leading
 // underscore tells Sapper not to do that.
-import mddHtml from "./html/magic-driven-development";
+import playmobilHtml from "./html/playmobil";
 
 const posts = [
   {
-    title: "Magic-Driven Development",
-    slug: "magic-driven-development",
-    html: mddHtml
+    title: "Don't Settle for Playmobil",
+    slug: "playmobil",
+    html: playmobilHtml
   }
 ];
 
