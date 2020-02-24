@@ -46,18 +46,15 @@
     width: 80%;
     display: block;
     border-radius: 12px;
-    border: 4px solid white;
     margin-bottom: 4rem;
     box-shadow: 8px 8px 32px -5px rgba(0,0,0,0.13);
-    transition: width 0.2s ease-out;
+    transition: box-shadow 0.2s ease-out;
   }
 
   video:hover {
     cursor: pointer;
-    max-width: 710px;
-    width: 82%;
     box-shadow: 4px 4px 16px -5px rgba(0,0,0,0.23);
-    transition: width 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
   }
 </style>
 

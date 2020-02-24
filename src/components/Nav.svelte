@@ -6,7 +6,8 @@
   nav {
     border-bottom: 1px solid rgba(255, 62, 0, 0.1);
     font-weight: 300;
-    padding: 0 1em;
+    padding: 0;
+    color: transparent;
   }
 
   ul {
@@ -14,35 +15,14 @@
     padding: 0;
   }
 
-  /* clearfix */
-  ul::after {
-    content: "";
-    display: block;
-    clear: both;
-  }
-
-  ul:nth-child(2) {
-    margin-left: auto;
-  }
-
   li {
-    display: block;
-    float: left;
+    display: inline-block;
+    width: 33%;
+    text-align: center;
   }
 
   .selected {
-    position: relative;
-    display: inline-block;
-  }
-
-  .selected::after {
-    position: absolute;
-    content: "";
-    width: calc(100% - 1em);
-    height: 2px;
-    background-color: var(--secondary1);
-    display: block;
-    bottom: -1px;
+    border-bottom: solid 2px var(--secondary1);
   }
 
   a {

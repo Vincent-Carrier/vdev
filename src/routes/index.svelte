@@ -1,6 +1,6 @@
 <style>
   h1,
-  figure,
+  h2,
   p {
     text-align: center;
     margin: 0 auto;
@@ -8,19 +8,8 @@
 
   h1 {
     font-size: 2.8em;
-    text-transform: uppercase;
     font-weight: 700;
-    margin: 0 0 0.5em 0;
-  }
-
-  figure {
-    margin: 0 0 1em 0;
-  }
-
-  img {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 0 1em 0;
+    margin-top: 40%;
   }
 
   p {
@@ -32,22 +21,29 @@
       font-size: 4em;
     }
   }
+
+  div {
+    background-image: url("/profile.jpg");
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    margin: 3em;
+  }
+
+  section {
+    display: flex;
+  }
 </style>
 
 <svelte:head>
-  <title>Sapper project template</title>
+  <title>Vincent Carrier - Web Developer</title>
 </svelte:head>
 
-<h1>Great success!</h1>
-
-<figure>
-  <img alt="Borat" src="great-success.png" />
-  <figcaption>HIGH FIVE!</figcaption>
-</figure>
-
-<p>
-  <strong
-    >Try editing this file (src/routes/index.svelte) to test live
-    reloading.</strong
-  >
-</p>
+<section>
+  <div></div>
+  <header>
+    <h1>Vincent Carrier</h1>
+    <h2>Web Developer</h2>
+  </header>
+</section>

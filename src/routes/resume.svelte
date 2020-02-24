@@ -5,6 +5,14 @@
 
   let projects = [
     {
+      name: "Scheduler",
+      subtitle: "Because agreeing on time is always awkward",
+      description: `A single-page app where students can schedule
+      interviews with their teachers. Built with React and tested
+      with Storybook, Jest and Cypress.`,
+      github: "scheduler2"
+    },
+    {
       name: "MySpaces",
       subtitle: "It's like Wikipedia but for places",
       description: `A website where users can share their favorite
@@ -27,7 +35,22 @@
     }
   ];
 
-  let educations = [];
+  let educations = [
+    {
+      name: "Full-Stack Web Dev Bootcamp",
+      institution: "Lighthouse Labs",
+      duration: "Graduated Feb. 2020"
+    },
+    {
+      name: "Self-directed learning",
+      duration: "Jan. 2017 - Dec. 2018"
+    },
+    {
+      name: "Arts & Science Degree",
+      institution: "Cegep de Rimouski",
+      duration: "Graduated May 2016"
+    }
+  ];
 
   let experiences = [];
 </script>
@@ -49,8 +72,8 @@
   <p>
     I'm a Montreal-based web developer on a mission to automate everything.
     After a brief detour through the world of economics, I found my true passion
-    in coding. When I'm not churning out 1s & 0s, you can find me zenning out on
-    a mountain, somewhere along the St-Lawrence River.
+    in coding. When I'm not churning out 1s & 0s, you can find me meditating
+    atop a mountain, somewhere along the St-Lawrence River.
   </p>
 
   <h2>Projects</h2>
@@ -71,7 +94,7 @@
 
 <style>
   h1 {
-    font-size: 2.6rem;
+    font-size: 2.7rem;
     text-align: center;
     font-style: italic;
     margin-bottom: 0.2rem;
@@ -88,7 +111,7 @@
 
   address * {
     color: var(--secondary1);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   h1 span {

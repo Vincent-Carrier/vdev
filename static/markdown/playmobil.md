@@ -1,57 +1,151 @@
-![Complex cables](https://www.pfmp.com/resources/img/services/complexity-management_02.jpg)
+# Pipe dreams: The Timeless Beauty of UNIX Pipes
 
-> Relying on complex tools to manage and build your system is going to hurt the end users. [...] "If you try to hide the complexity of the system, you'll end up with a more complex system". Layers of abstraction that serve to hide internals are never a good thing. Instead, the internals should be designed in a way such that they NEED no hiding. — Aaron Griffin (Arch Linux Maintainer)
+Did you ever wish your codebase looked a bit less like this…
+[Tangled mess of cables](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn6.dissolve.com%2Fp%2FD1024_104_568%2FD1024_104_568_1200.jpg&f=1&nofb=1)
+…and a bit more like this?
+[Railway tracks](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.reckontalk.com%2Fwp-content%2Fuploads%2F2016%2F04%2Findian-railway-system-2.jpg&f=1&nofb=1)
 
-I may not yet be the greyest beard, but I have journeyed through my fair share of text editors. From the lofty refactors of IntelliJ, through the barren Vim lands, and over the misty mountains of VS Code. But it is in the remote Kakoune plains that I found my peace.
+I know I do. And when that happens, I recall the warmth and fuzziness of laying down a few UNIX pipes next to each other. If you don’t know already, UNIX pipes are the spindly bars which sparkle the shell scripts you steal from StackOverflow. 
 
-What’s a *Kakoune*, you say? Well, I’m glad you asked! It’s the best thing since sliced bread. It’s a Piet Mondrian painting masquerading as software. It’s... the dumbest code editor I know of. It’s the **UNIX philosophy** at its finest.
+## What’s in a pipe?
+
+Pipes feed the output of one command into the input of the next one, in such a way that they can be gracefully chained together. Here’s a relatively straightforward example I came up with:
+
+`$ ps -a | awk '$3 > 1 && NR > 1 {print $1}' | xargs kill`
+
+Not withstanding the cryptic invocations such as `ps -a` and `xargs kill`, pipes are delightfully easy to read. Let’s break it down, step by step.
+
+Kicking off the chain, I list my running processes with `ps -a`, making use of `head -n 5` to only display the first five lines.
+
+```
+$ ps -a | head -n 5
+  PID TTY           TIME CMD
+28415 ttys000    0:00.01 (bash)
+28418 ttys000    0:00.00 (bash)
+29434 ttys000    0:00.00 /bin/bash /Users/vincent/.local/bin/k src/components/Nav.svelte
+29442 ttys000    0:00.20 kak -c vdev src/components/Nav.svelte
+```
+
+We can use `awk` to refine our selection. Let us keep only the processes that have been running for more than an hour.
+```
+$ ps -a | awk '$3 > 1'
+  PID TTY           TIME CMD
+69952 ttys000    3:06.11 kak -d -s vdev
+60843 ttys003    6:31.51 lazygit
+```
+
+Time to zero in on our prey: process IDs.
+```
+$ ps -a | awk '$3 > 1 && NR > 1 {print $1}'
+69952
+60843
+```
+
+Now we can go for the `kill` Careful, this command will shutdown any user process that has been running for over an hour. **You have been warned.** This works because `xargs` feeds each line of input as an argument to `kill`.
+
+```
+$ ps -a | awk '$3 > 1 && NR > 1 {print $1}' | xargs kill
+```
+
+Hopefully you’re still with me at this point. Don’t worry if you didn’t understand every single bit of UNIX voodoo in there. Notice how we were able to get quick textual feedback at every step. This is a fortunate side-effect of what is commonly referred to as the *UNIX philosophy*:
 
 > Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.
 
-You see, Kakoune doesn’t overstep its bounds. It’s a code editor, and nothing else. Kakoune is the chef’s knife that slices, dices, chops and minces your code.
+## Source Code Novels
 
-But Kakoune doesn’t have tabs or even a scripting language. For that, you can use tmux and shell scripts, respectively.
+What would that program sound like if we tried to describe it to someone?
 
-Wherever it made sense to use the platform, Kakoune did. The end result is that not only do you learn Kakoune, you also gain an understanding for the entire UNIX ecosystem lying underneath.
+> First, I display a detailed list of user processes. Then I keep only the IDs those that have been running for over an hour. Then I shutdown those processes.
 
-## Designing for programmers
+One paragraph. Three sentences. *Not bad.*
+
+Let us now transform our humble program into the next great object-oriented best-seller. I hope you’ve got some loose RAM sticks lying around, cause we’re going to write in the *purest* object-oriented language other, the one and only Java.
+
+
+```
+// When it comes to folders, better safe than sorry!
+// src/main/java/com/acmecorp/processkiller/managers/processes/ProcessesManager.java
+
+public class ProcessesManager {
+	ProcessesManager() {
+		// Implementation left as an exercise to the reader
+	}
+	
+	// Let us not forget about factory functions!
+	public static create() {
+		// …
+	}
+	
+	public ArrayList<Process> userProcesses() {
+		// …
+	}
+}
+```
+
+```
+// src/main/java/com/acmecorp/processkiller/terminators/processes/ProcessTerminator.java
+
+// Single Responsibility Principle is very Important
+public class ProcessTerminator {
+	ProcessTerminator() {
+		// …
+	}
+	
+	// Let us not forget about factory functions!
+	public static create() {
+		// …
+	}
+	
+	public void terminate(Process process) {
+		// …
+	}
+}
+```
+
+As you can see, *ProcessesManager* is proud and noble man and will not be summoned in just any manner.
+
+```
+// src/main/java/com/acmecorp/processkiller/main.java
+
+// Don't forget to import our dependencies!
+import com.acmecorp.processkiller.managers.processes.ProcessesManager;
+import com.acmecorp.processkiller.terminators.processes.ProcessTerminator;
+import com.acmecorp.processkiller.beans.Process;
+
+public static class OldProcessTerminator {
+	public static void main(String[] args) {
+		ProcessesManager processesManager = ProcessesManager.create();
+		ArrayList<Process> userProcesses = processesManager.userProcesses();
+		
+		// We shouldn't instantiate a proces terminator unless we need to
+		ProcessTerminator processTerminator = null;
+		for (Process process : userProcesses) {
+			// Convert from milliseconds
+			int hours = process.getTime() / (1000 * 60 * 60);
+			if (hours >= 1) {
+				if (processTerminator == null) {
+					processTerminator = ProcessTerminator.create();
+				}
+				processTerminator.terminate(process);
+			}
+		}
+	}
+}
+```
+
+Now, *that’s* what I call a novel! Surely it belongs among the Austens and Dickens of this world. And yes, I might have exaggerated on the amount of verbosity. But not much. In reality, this kind of code is more akin to the script of Pulp Fiction than anything else. After two puzzling hours of back and forth, you *might* be able to piece everything back together. But that’s only if you manage to decode the program logic from the heavy amounts of ceremony and so-called “good practices”.
+
+## Your codebase makes me fat
+
+It’s so easy to waste entire days just hopping around a codebase like that, trying to piece together how all those *Manager* classes relate to each other. I remember coming back home from days like these, absolutely exhausted. In all likeliness, I’d order pizza. I’d become irritated and asocial. Because these codebases aren’t simply tedious to work with, [they’re a moral hazard](https://seriouspony.com/blog/2013/7/24/your-app-makes-me-fat).
+
+No matter the amount of tests written, no matter how good the documentation, convoluted code is a public health danger. Spare yourself, spare your children. *Do not feed it.*
 
 
 
-## Ruby, Rails, and Rage
 
-> If you try to hide the complexity of the system, you'll end up with a more complex system.
-> Instead, the internals should be designed in a way such that they NEED no hiding.
+## Somewhere Over the Monad
 
-This week, as I was learning Ruby on Rails, I found myself pondering these words of wisdom once again. Every decision felt arbitrary (*it was*). Was I learning to program a web server, or was I only learning some magic incantations (*I was*)
+It doesn’t have to be like this. Some languages, like F#, demand explicit file ordering, so that you always know your place inside the program. In fact, 
 
-*Wait, should that be `:user` or `:users`??* Oh, don’t worry about it.
 
-*Wait, where is that variable coming from??* Oh, don’t worry about it. 
-
-*Wait, is that thing a method or a variable??* Oh, don’t worry about it.
-
-*Wait, how do I even add a static page without changing 5 different files??*  ...
-... ... ¯\\_(°◞౪◟°)_/¯
-
-*Wait, WTF is CoffeeScript doing here!?* ...
-... ... ¯\\_(´◉◞౪◟◉)_/¯
-
-After a week, writing Rails code still feels like 
-No, I *don’t* think we should rewrite every web server in existence in Assembly. Yes, I *do* think Rails has its use cases. If you’re an agency churning out websites by the dozen, Rails might very well be the best choice for you. But if you’re planning for the long term, please do learn how to write a web server, not the *abstraction* of one. Don’t just learn ActiveRecord, learn about databases.
-
-## Fighting the Framework
-
-> You are what you code
-
-Programming is the art of breaking large problems into smaller, more manageable parts. The tools we use to solve those problems end up reflecting on the solutions we choose. [Small, flexible tools](https://en.wikipedia.org/wiki/Unix_philosophy) will produce small, flexible software. Large, monolithic tools will beget large, monolithic software. Consider this a miniature form of [Conway’s Law](https://en.wikipedia.org/wiki/Conway%27s_law).
-
-Large frameworks like Rails aren’t dangerous simply because they abstract over their problem. They are dangerous because they abstract over so many different things at the same time.
-
-Next time you find yourself drooling over a new shiny framework, please ask yourself: 
-- What’s the likelihood of this abstraction still being relevant in 2 years? 5 years? 10 years?
-- What is this code hiding from me? Will it come back to haunt me?
-- Will it play nice with the rest of my toolkit?
-- Is this something I could reasonably code myself?
-
-Why do we trade our LEGO bricks for Playmobils? Why do we give up our home-cooked code for heat-and-serve copy-pastas?
