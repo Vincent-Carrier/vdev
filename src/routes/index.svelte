@@ -29,6 +29,8 @@
     height: 300px;
     border-radius: 100%;
     margin: 3em;
+    transform: rotate(-10deg);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   section {

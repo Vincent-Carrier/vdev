@@ -5,6 +5,14 @@
 
   let projects = [
     {
+      name: "ThirdWheel",
+      subtitle: "Find the perfect match. Or make it.",
+      description: `A single-page app that lets you play Cupid.
+      It's like Tinder but without all the swiping! Built with React
+      and Express.`,
+      github: "thirdwheel"
+    },
+    {
       name: "Scheduler",
       subtitle: "Because agreeing on time is always awkward",
       description: `A single-page app where students can schedule
@@ -32,7 +40,7 @@
       easier to share on Tweeter`,
       description: "Built with Node, Bootstrap, EJS and love.",
       github: "tinyapp"
-    }
+    },
   ];
 
   let educations = [

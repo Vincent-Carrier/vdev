@@ -13,8 +13,8 @@
   <h5>{subtitle}</h5>
   <p>{description}</p>
   <video on:click={playVideo} preload="auto" mute>
-    <source src={`demos/${github}.webm`} type="video/webm">
     <source src={`demos/${github}.mp4`} type="video/mp4">
+    <source src={`demos/${github}.webm`} type="video/webm">
   </video>
 </article>
 
