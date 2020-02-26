@@ -1,21 +1,15 @@
 <script>
-  export let project;
-  const { name, subtitle, description, github } = project;
+  export let experience;
+  const { company, title, description, website, duration } = experience;
 </script>
-
 
 <article>
   <h4>
-    <a href={`https://github.com/Vincent-Carrier/${github}`}>{name}</a>
+    <a href="{website}">{company}</a>
   </h4>
-  <h5>{subtitle}</h5>
+  <h5>{title}</h5>
   <p>{description}</p>
-  <video on:click={e => e.target.play()} preload="auto" mute>
-    <source src={`${github}.webm`} type="video/webm">
-    <source src={`${github}.mp4`} type="video/mp4">
-  </video>
 </article>
-
 
 <style>
   h4 {
@@ -46,15 +40,13 @@
     border-radius: 12px;
     border: 4px solid white;
     margin-bottom: 4rem;
-    box-shadow: 8px 8px 32px -5px rgba(0,0,0,0.13);
+    box-shadow: 8px 8px 32px -5px rgba(0, 0, 0, 0.13);
     transition: box-shadow 0.1s ease-out;
   }
 
   video:hover {
     cursor: pointer;
-    box-shadow: 4px 4px 16px -5px rgba(0,0,0,0.23);
+    box-shadow: 4px 4px 16px -5px rgba(0, 0, 0, 0.23);
     transition: box-shadow 0.3s ease-in;
   }
 </style>
-
-

@@ -1,40 +1,78 @@
 <style>
   h1,
-  h2,
-  p {
+  h2 {
     text-align: center;
-    margin: 0 auto;
+    margin: 0 4px;
   }
 
   h1 {
-    font-size: 2.8em;
+    font-size: calc(2vw + 2.4em);
     font-weight: 700;
-    margin-top: 40%;
+    font-style: italic;
+  }
+
+  h1 span {
+    font-weight: 400;
   }
 
   p {
-    margin: 1em auto;
+    font-size: 1.2em;
   }
 
-  @media (min-width: 480px) {
-    h1 {
-      font-size: 4em;
+  @media (max-width: 780px) {
+    section {
+      flex-direction: column-reverse;
     }
   }
 
-  div {
+  h2 {
+    color: var(--secondary1);
+    font-size: calc(2em + 1vw);
+    font-weight: 300;
+  }
+
+  h3 {
+    font-size: 2.1em;
+    text-align: right;
+  }
+
+  .hero-img {
     background-image: url("/profile.jpg");
     background-size: cover;
-    width: 300px;
-    height: 300px;
+    width: calc(3vw + 256px);
+    height: calc(3vw + 256px);
     border-radius: 100%;
     margin: 3em;
-    transform: rotate(-10deg);
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
   }
 
-  section {
+  .hero {
     display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .text-block {
+    max-width: 56em;
+    margin: 0 auto;
+  }
+
+  section {
+    width: 100vw;
+    padding: 1em 3em;
+  }
+
+  section:nth-child(even) {
+    background-color: var(--secondary1);
+    color: white;
+  }
+
+  section:nth-child(odd) p {
+    text-align: right;
+  }
+
+  section:nth-child(odd) h3 {
+    text-align: left;
   }
 </style>
 
@@ -42,10 +80,25 @@
   <title>Vincent Carrier - Web Developer</title>
 </svelte:head>
 
-<section>
-  <div></div>
+<section class="hero">
   <header>
-    <h1>Vincent Carrier</h1>
+    <h1>Vincent <span>Carrier</span></h1>
     <h2>Web Developer</h2>
   </header>
+  <div class="hero-img" />
+</section>
+<section>
+  <div class="text-block">
+    <h3>Welcome to my website!</h3>
+    <p>It's pretty empty in here... for now</p>
+  </div>
+</section>
+<section>
+  <div class="text-block">
+    <h3>Proudly built with Svelte & Sapper</h3>
+    <p>
+      You can find all the source code for this website
+      <a href="https://github.com/Vincent-Carrier/vdev">here</a>.
+    </p>
+  </div>
 </section>

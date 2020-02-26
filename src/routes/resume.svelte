@@ -40,7 +40,7 @@
       easier to share on Tweeter`,
       description: "Built with Node, Bootstrap, EJS and love.",
       github: "tinyapp"
-    },
+    }
   ];
 
   let educations = [
