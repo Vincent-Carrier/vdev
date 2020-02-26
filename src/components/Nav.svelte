@@ -8,6 +8,8 @@
     padding: 0;
     display: flex;
     justify-content: stretch;
+    max-width: 56em;
+    margin: 0 auto;
   }
 
   .selected {
@@ -30,5 +32,5 @@
 
   <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
 		     the blog data when we hover over the link or tap it on a touchscreen -->
-  <a rel="prefetch" class:selected='{segment === "blog"}' href="blog">blog</a>
+  <!--<a rel="prefetch" class:selected='{segment === "blog"}' href="blog">blog</a>-->
 </nav>

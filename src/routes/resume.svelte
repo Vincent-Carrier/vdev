@@ -60,7 +60,16 @@
     }
   ];
 
-  let experiences = [];
+  let experiences = [
+    {
+      company: "Omnigate Systems",
+      title: "Java Developer",
+      description:
+        "Implemented new features, participated in design decisions, maintained and improved legacy code",
+      website: "https://www.omnigate.com",
+      duration: "Jan. 2019 - Jun. 2019"
+    }
+  ];
 </script>
 
 <svelte:head>

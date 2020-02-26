@@ -63,15 +63,15 @@
   }
 
   section:nth-child(even) {
-    background-color: var(--secondary1);
+    background-color: var(--secondary2);
     color: white;
   }
 
-  section:nth-child(odd) p {
+  section:nth-child(even) p {
     text-align: right;
   }
 
-  section:nth-child(odd) h3 {
+  section:nth-child(even) h3 {
     text-align: left;
   }
 </style>
