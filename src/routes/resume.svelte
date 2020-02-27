@@ -40,6 +40,15 @@
       easier to share on Tweeter`,
       description: "Built with Node, Bootstrap, EJS and love.",
       github: "tinyapp"
+    },
+    {
+      name: "GoChess",
+      subtitle: "Play chess from your command-line",
+      description: `I've written half a dozen chess apps like this one because
+      this is how I like to learn new languages. This is how I learned to write
+      Rust, F#, Ruby, Swift and C# (among others).`,
+      github: "gochess",
+      screenshot: true
     }
   ];
 

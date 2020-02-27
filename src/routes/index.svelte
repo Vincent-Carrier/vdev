@@ -43,7 +43,7 @@
     height: calc(3vw + 256px);
     border-radius: 100%;
     margin: 3em;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: -2px 2px 7px 4px rgba(0, 0, 0, 0.1);
   }
 
   .hero {

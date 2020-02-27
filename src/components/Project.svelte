@@ -1,6 +1,6 @@
 <script>
   export let project;
-  const { name, subtitle, description, github } = project;
+  const { name, subtitle, description, github, screenshot } = project;
 
   function playVideo(e) { e.target.play() }
 </script>
@@ -12,10 +12,13 @@
   </h4>
   <h5>{subtitle}</h5>
   <p>{description}</p>
+  {#if screenshot}
+    <img src={`demos/${github}.png`}>
+  {:else}
   <video on:click={playVideo} preload="auto" mute>
     <source src={`demos/${github}.mp4`} type="video/mp4">
-    <source src={`demos/${github}.webm`} type="video/webm">
   </video>
+  {/if}
 </article>
 
 
@@ -39,7 +42,7 @@
     margin-top: 0.9rem;
   }
 
-  video {
+  video, img {
     margin: 0 auto;
     min-width: 300px;
     max-width: 700px;
@@ -47,6 +50,9 @@
     display: block;
     border-radius: 12px;
     margin-bottom: 4rem;
+  }
+
+  video {
     box-shadow: 8px 8px 32px -5px rgba(0,0,0,0.13);
     transition: box-shadow 0.2s ease-out;
   }
