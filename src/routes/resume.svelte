@@ -88,7 +88,7 @@
 <main>
   <h1>Vincent <span>Carrier</span></h1>
   <address>
-    <a href="mailto:me@vcar.dev">me@vcar.dev</a> ·
+    <a href="mailto:vincent@android-montreal.com">vincent@android-montreal.com</a> ·
     <a href="+15145717839">(514) 571-7839</a> ·
     <a href="https://github.com/Vincent-Carrier">GitHub</a> ·
     <a href="https://www.linkedin.com/in/vincent-carrier-23830a12b/"
