@@ -8,8 +8,8 @@
       name: "ThirdWheel",
       subtitle: "Find the perfect match. Or make it.",
       description: `A single-page app that lets you play Cupid.
-      It's like Tinder but without all the swiping! Built with React
-      and Express.`,
+      It's like Tinder but without all the swiping! Built with React,
+      Socket.io, Sass, Node, Express and PostgreSQL.`,
       github: "thirdwheel"
     },
     {
@@ -82,10 +82,10 @@
 </script>
 
 <svelte:head>
-  <title>Résumé</title>
+  <title>Vincent Carrier - Résumé</title>
 </svelte:head>
 
-<main>
+<article>
   <h1>Vincent <span>Carrier</span></h1>
   <address>
     <a href="mailto:vincent@android-montreal.com">vincent@android-montreal.com</a> ·
@@ -96,7 +96,7 @@
     >
   </address>
   <p>
-    I'm a Montreal-based web developer on a mission to automate everything.
+    I'm a Montreal-based full-stack web developer on a mission to automate everything.
     After a brief detour through the world of economics, I found my true passion
     in coding. When I'm not churning out 1s & 0s, you can find me meditating
     atop a mountain, somewhere along the St-Lawrence River.
@@ -116,19 +116,19 @@
   {#each educations as education}
   <Education {education} />
   {/each}
-</main>
+</article>
 
 <style>
   h1 {
-    font-size: 2.7rem;
+    font-size: 2.7em;
     text-align: center;
     font-style: italic;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.2em;
   }
 
   p {
-    font-size: 1.3rem;
-    margin-bottom: 3rem;
+    font-size: 1.3em;
+    margin-bottom: 3em;
   }
 
   address {
@@ -137,22 +137,22 @@
 
   address * {
     color: var(--secondary1);
-    font-size: 1.3rem;
+    font-size: 1.3em;
   }
 
   h1 span {
     font-weight: 400;
   }
 
-  main {
+  article {
     max-width: 800px;
-    padding: 0 2rem;
+    padding: 0 2em;
     margin: 0 auto;
-    padding-bottom: 8rem;
+    padding-bottom: 8em;
   }
 
   h2 {
-    font-size: 2.2rem;
-    margin-bottom: -1.2rem;
+    font-size: 2.2em;
+    margin-bottom: -.8em;
   }
 </style>

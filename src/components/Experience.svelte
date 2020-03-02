@@ -30,23 +30,4 @@
     font-size: 1.2rem;
     margin-top: 0.9rem;
   }
-
-  video {
-    margin: 0 auto;
-    min-width: 300px;
-    max-width: 700px;
-    width: 80%;
-    display: block;
-    border-radius: 12px;
-    border: 4px solid white;
-    margin-bottom: 4rem;
-    box-shadow: 8px 8px 32px -5px rgba(0, 0, 0, 0.13);
-    transition: box-shadow 0.1s ease-out;
-  }
-
-  video:hover {
-    cursor: pointer;
-    box-shadow: 4px 4px 16px -5px rgba(0, 0, 0, 0.23);
-    transition: box-shadow 0.3s ease-in;
-  }
 </style>

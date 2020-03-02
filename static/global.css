@@ -24,7 +24,7 @@ body {
 }
 
 a {
-  color: var(--primary1);
+  color: var(--primary2);
   text-decoration: none;
 }
 
@@ -32,9 +32,15 @@ a:hover {
   text-decoration: underline;
   text-decoration-thickness: 0.3rem;
   text-underline-offset: 0.3rem;
-  text-decoration-color: var(--primary1);
+  text-decoration-color: var(--primary2);
 }
 
-a:visited {
-  color: var(--primary2);
+@media print {
+  main * {
+    font-size: 12px !important;
+  }
+
+  video, img, nav {
+    display: none !important;
+  }
 }

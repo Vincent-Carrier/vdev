@@ -16,7 +16,7 @@
   }
 
   p {
-    font-size: 1.2em;
+    font-size: 1.3em;
   }
 
   @media (max-width: 780px) {
@@ -38,12 +38,13 @@
 
   .hero-img {
     background-image: url("/profile.jpg");
+    flex-shrink: 0;
     background-size: cover;
-    width: calc(3vw + 256px);
-    height: calc(3vw + 256px);
+    width: calc(4vw + 256px);
+    height: calc(4vw + 256px);
     border-radius: 100%;
-    margin: 3em;
-    box-shadow: -2px 2px 7px 4px rgba(0, 0, 0, 0.1);
+    margin: 1.5em 3em;
+    box-shadow: -2px 2px 20px 4px rgba(0, 0, 0, 0.1);
   }
 
   .hero {
@@ -57,14 +58,26 @@
     margin: 0 auto;
   }
 
+  .icons {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  .icons img {
+    width: 3em;
+    margin: 0 0.8em;
+    filter: invert(1);
+  }
+
   section {
     width: 100vw;
     padding: 1em 3em;
   }
 
   section:nth-child(even) {
-    background-color: var(--secondary2);
-    color: white;
+    background-color: var(--primary2);
+    color: var(--light1);
   }
 
   section:nth-child(even) p {
@@ -83,14 +96,18 @@
 <section class="hero">
   <header>
     <h1>Vincent <span>Carrier</span></h1>
-    <h2>Web Developer</h2>
+    <h2>Full-Stack Web Developer</h2>
   </header>
   <div class="hero-img" />
 </section>
 <section>
   <div class="text-block">
     <h3>Welcome to my website!</h3>
-    <p>It's pretty empty in here... for now</p>
+    <p>Feel free to contact me via email / LinkedIn. Or have a look at my GitHub!</p>
+    <div class="icons">
+      <a href="https://github.com/Vincent-Carrier"><img src="github-brands.svg" alt="GitHub"></a>
+      <a href="https://www.linkedin.com/in/vincent-carrier-23830a12b/"><img src="linkedin-brands.svg" alt="LinkedIn"></a>
+      <a href="mailto:vincent@android-montreal.com"><img src="paper-plane-solid.svg" alt="Email"></a>
   </div>
 </section>
 <section>
